@@ -199,7 +199,7 @@ class IFMapGenProperty(object):
         meta = self._meta
         fnname = '%s_ParseMetadata' % meta.getCppName()
 	decl = """
-bool %s(const pugi::xml_node &parent, std::auto_ptr<AutogenProperty > *resultp) {
+bool %s(const pugi::xml_node &parent, std::unique_ptr<AutogenProperty > *resultp) {
 """ % fnname
 	file.write(decl)
 
@@ -250,7 +250,7 @@ class IFMapGenLinkAttr(object):
         if not meta.getCType():
             decl = """
 bool %s::ParseMetadata(const pugi::xml_node &parent,
-        std::auto_ptr<AutogenProperty> *resultp) {
+        std::unique_ptr<AutogenProperty> *resultp) {
     %sData *var = new %sData();
     resultp->reset(var);
 """ % (meta.getCppName(), meta.getCppName(), meta.getCppName())
@@ -435,7 +435,7 @@ namespace autogen {
 
         parse_link_decl = """
 static bool ParseLinkMetadata(const xml_node &parent,
-    std::auto_ptr<AutogenProperty> *resultp) {
+    std::unique_ptr<AutogenProperty> *resultp) {
     return true;
 }
 """

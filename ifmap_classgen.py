@@ -396,7 +396,7 @@ public:
         if not self._meta.getCType():
             cdef = """
     static bool ParseMetadata(const pugi::xml_node &parent,
-                              std::auto_ptr<AutogenProperty> *resultp);
+                              std::unique_ptr<AutogenProperty> *resultp);
 """
             file.write(cdef)
 

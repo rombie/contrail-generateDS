@@ -37,7 +37,7 @@ class TypeClassGenerator(object):
     void Copy(const %s &rhs);
     bool XmlParse(const pugi::xml_node &node);
     static bool XmlParseProperty(const pugi::xml_node &node,
-                                 std::auto_ptr<AutogenProperty> *resultp);
+                                 std::unique_ptr<AutogenProperty> *resultp);
     void Encode(pugi::xml_node *node) const;
     void CalculateCrc(boost::crc_32_type *crc) const;
 };

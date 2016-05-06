@@ -74,7 +74,7 @@ bool %s::XmlParse(const xml_node &parent) {
 
         static_fn = """
 bool %s::XmlParseProperty(const xml_node &parent,
-        auto_ptr<AutogenProperty> *resultp) {
+        unique_ptr<AutogenProperty> *resultp) {
     %s *ptr = new %s();
     resultp->reset(ptr);
     if (!ptr->XmlParse(parent)) {
